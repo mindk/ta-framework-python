@@ -1,0 +1,5 @@
+selenium
+webdriver_manager
+allure-pytest
+faker
+factory_boy
