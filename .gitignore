@@ -139,5 +139,6 @@ dmypy.json
 out
 gen
 screenshots
+report
 
 my_env

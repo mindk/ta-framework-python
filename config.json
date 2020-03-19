@@ -1,7 +1,8 @@
 {
     "remote": true,
     "host": "127.0.0.1",
-    "base_url": "https://mailcap.io",
     "browser": "chrome",
-    "screenshots_dir": "screenshots/"
+    "screenshots_dir": "screenshots/",
+    "base_url": "https://mailcap.io",
+    "base_url_api": "https://mailcap.io"
 }
