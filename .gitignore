@@ -138,5 +138,6 @@ dmypy.json
 *.iml
 out
 gen
+screenshots
 
 my_env

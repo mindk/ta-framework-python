@@ -1,6 +1,7 @@
 {
     "remote": true,
     "host": "127.0.0.1",
-    "base_url": "",
-    "browser": "chrome"
+    "base_url": "https://mailcap.io",
+    "browser": "chrome",
+    "screenshots_dir": "screenshots/"
 }

@@ -1,6 +1,5 @@
 import json
 import os
-import logging
 
 
 def get_config(attr):

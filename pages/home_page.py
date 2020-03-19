@@ -11,7 +11,8 @@ from utils.basepage import Page
 class HomePage(Page):
     URL = '/'
 
-    USER_DROPDOWN = (By.CSS_SELECTOR, ".ta-headerDropDownUser .dropdown-username")
+    USER_DROPDOWN = (By.XPATH, "//li[@class='dropdown']/a")
+    INBOXES_BUTTON = (By.XPATH, "//li/a[text()='Inboxes']")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -25,3 +26,7 @@ class HomePage(Page):
         wait = WebDriverWait(self.driver, 10)
         wait.until(ec.visibility_of_element_located(self.USER_DROPDOWN))
         self.logger.info('Home page is opened')
+
+    @allure.step("Verify user name in header")
+    def verify_user_name(self, user):
+        assert user.username in self.driver.find_element(*self.USER_DROPDOWN).text

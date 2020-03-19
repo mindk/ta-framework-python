@@ -2,7 +2,6 @@ import allure
 import pytest
 
 from data.factory_user import UserFactory
-from data.user import User
 from pages.home_page import HomePage
 from pages.login_page import LogInPage
 
@@ -16,11 +15,17 @@ class TestLogin:
         login_page = LogInPage(self.driver)
         home_page = HomePage(self.driver)
 
-        new_user = UserFactory()
+        user = UserFactory(
+            username="python_test",
+            email="python_test@example.com",
+            password="qwer1234"
+        )
 
-        with allure.step('Login as Admin'):
+        with allure.step("Login as user"):
+            login_page.open()
             login_page.wait_for_page_loaded()
-            login_page.login(User(username='', password=''))
+            login_page.login(user)
+        with allure.step("Check Home Page is opened"):
             home_page.wait_for_page_loaded()
-            assert login_page.url not in self.driver.current_url
-
+            home_page.verify_user_name(user)
+            home_page.screen_shot("Home Page is opened")

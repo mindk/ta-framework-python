@@ -10,7 +10,9 @@ def setup(request):
     wd = WebDriverFactory()
     driver = wd.get_browser()
     driver.implicitly_wait(10)
-    request.cls.driver = driver
+
+    if request.cls is not None:
+        request.cls.driver = driver
     before_failed = request.session.testsfailed
     yield
     if request.session.testsfailed != before_failed:
