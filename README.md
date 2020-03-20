@@ -1,0 +1,1 @@
+MindK Python Test Automation Framework skeleton
