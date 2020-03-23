@@ -1,5 +1,5 @@
 {
-    "remote": true,
+    "remote": false,
     "host": "127.0.0.1",
     "browser": "chrome",
     "screenshots_dir": "screenshots/",

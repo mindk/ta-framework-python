@@ -3,10 +3,12 @@ from urllib.request import urlopen
 
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
 from utils.config import get_config
+from utils.webdriver_event_listener import WebDriverListener
 
 
 class WebDriverFactory:
@@ -63,6 +65,8 @@ class WebDriverFactory:
         except Exception:
             driver.quit()
             raise Exception("Target host is not available")
-        driver.get(self.base_url)
 
-        return driver
+        w_driver = EventFiringWebDriver(driver, WebDriverListener())
+        w_driver.get(self.base_url)
+
+        return w_driver
